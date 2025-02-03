@@ -25,7 +25,7 @@
       overflow: visible;
     }
 
-    /* Centered Circle with Glowing Slideshow */
+    /* Circle with Glowing Slideshow */
     .circle-container {
       position: absolute;
       top: 50%;
@@ -46,18 +46,21 @@
     /* Lovable Text Above Circle */
     .lovable-text {
       position: absolute;
-      top: -50px;
+      top: -70px;
       width: 100%;
       text-align: center;
       font-size: 2.2rem;
       color: #fff;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 102, 0.8);
       font-family: 'Cursive', sans-serif;
+      z-index: 10;
     }
 
     .lovable-text .heart {
       color: #ff3366;
-      font-size: 1.8rem;
+      font-size: 2.4rem;
+      position: relative;
+      top: 5px;
       animation: heartbeat 1.5s infinite;
     }
 
@@ -66,7 +69,7 @@
       50% { transform: scale(1.2); }
     }
 
-    /* Slideshow Images with Glow Effect */
+    /* Slideshow Images */
     .circle img {
       position: absolute;
       width: 100%;
@@ -92,7 +95,7 @@
       100% { opacity: 0; }
     }
 
-    /* Stylish Timer Positioned 10% from Bottom */
+    /* Timer Display */
     .timer-container {
       position: absolute;
       width: 100%;
@@ -114,15 +117,14 @@
   </style>
 </head>
 <body>
-  <!-- Falling Hearts Background -->
   <div class="hearts-container"></div>
 
-  <!-- Centered Circle with Glowing Slideshow -->
+  <!-- Circle Slideshow -->
   <div class="circle-container">
+    <div class="lovable-text">
+      Krishna <span class="heart">❤️</span> Vasanthi
+    </div>
     <div class="circle">
-      <div class="lovable-text">
-        Krishna <span class="heart">❤️</span> Vasanthi
-      </div>
       <img src="WhatsApp Image 2025-02-03 at 6.53.48 PM.jpeg" alt="Image 1">
       <img src="WhatsApp Image 2025-02-03 at 6.56.26 PM.jpeg" alt="Image 2">
       <img src="WhatsApp Image 2025-02-03 at 6.54.07 PM.jpeg" alt="Image 3">
@@ -130,11 +132,10 @@
     </div>
   </div>
 
-  <!-- Timer Display -->
   <div class="timer-container" id="timer"></div>
 
   <script>
-    /* Anniversary Timer Script */
+    /* Timer Script */
     const startDate = new Date('2022-02-03T00:00:00');
     const timerElement = document.getElementById('timer');
 
