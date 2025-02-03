@@ -74,6 +74,39 @@
       position: relative;
     }
 
+    /* Lovable Text Above Circle */
+    .lovable-text {
+      position: absolute;
+      top: -50px;
+      width: 100%;
+      text-align: center;
+      font-size: 2.2rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 102, 0.8);
+      font-family: 'Cursive', sans-serif;
+    }
+
+    .lovable-text span {
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    .lovable-text .heart {
+      color: #ff3366;
+      font-size: 2.8rem;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
     /* Slideshow Images with Glow Effect */
     .circle img {
       position: absolute;
@@ -128,7 +161,9 @@
   <!-- Centered Circle with Glowing Slideshow -->
   <div class="circle-container">
     <div class="circle">
-      <!-- Replace these image URLs with your own images -->
+      <div class="lovable-text">
+        Krishna <span class="heart">❤️</span> Vasanthi
+      </div>
       <img src="WhatsApp Image 2025-02-03 at 6.53.48 PM.jpeg" alt="Image 1">
       <img src="WhatsApp Image 2025-02-03 at 6.56.26 PM.jpeg" alt="Image 2">
       <img src="WhatsApp Image 2025-02-03 at 6.54.07 PM.jpeg" alt="Image 3">
@@ -143,13 +178,8 @@
     /* Hearts Animation Script */
     const heartSVG = `
       <svg viewBox="0 0 32 32">
-        <path d="
-          M16 29 
-          C16 29 2 18 2 8 
-          C2 -2 10 -4 16 4 
-          C22 -4 30 -2 30 8 
-          C30 18 16 29 16 29 Z" 
-          fill="url(#gradient)" stroke="#ff0844" stroke-width="1.2">
+        <path d="M16 29 C16 29 2 18 2 8 C2 -2 10 -4 16 4 C22 -4 30 -2 30 8 C30 18 16 29 16 29 Z"
+              fill="url(#gradient)" stroke="#ff0844" stroke-width="1.2">
         </path>
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -168,11 +198,11 @@
       heart.className = 'heart';
       heart.innerHTML = heartSVG;
 
-      const duration = Math.random() * 4 + 6; // Duration between 6-10 seconds
-      const delay = Math.random() * -duration; // Negative delay for synchronization
+      const duration = Math.random() * 4 + 6;
+      const delay = Math.random() * -duration;
       const left = Math.random() * 100;
       const scale = Math.random() * 0.5 + 0.5;
-      const xDrift = (Math.random() - 0.5) * 40; // ±20px drift
+      const xDrift = (Math.random() - 0.5) * 40;
 
       heart.style.cssText = `
         left: ${left}%;
@@ -196,13 +226,11 @@
       }
     }
 
-    // Initial hearts and maintenance loop
     maintainHearts();
     setInterval(maintainHearts, 500);
     window.addEventListener('resize', maintainHearts);
 
     /* Anniversary Timer Script */
-    // Set your anniversary start date here
     const startDate = new Date('2022-02-03T00:00:00');
     const timerElement = document.getElementById('timer');
 
@@ -212,7 +240,6 @@
       let months = now.getMonth() - startDate.getMonth();
       let days = now.getDate() - startDate.getDate();
 
-      // Adjust for negative days or months
       if (days < 0) {
         months--;
         const tempDate = new Date(now);
@@ -249,7 +276,6 @@
       `;
     }
 
-    // Update timer every second
     updateTimer();
     setInterval(updateTimer, 1000);
   </script>
